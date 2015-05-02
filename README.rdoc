@@ -7,7 +7,7 @@ Rails 4 QuickBooks API V3 barebone based on Christian Pelczarski(minimul) Tutori
 * A QB configuration file
 config/initializers/quickbooks.rb
 
-```
+
 
     QB_KEY = "your_QB_KEY_HERE"
     QB_SECRET = "your_QB_SECRET_KEY_HERE"
@@ -20,13 +20,13 @@ config/initializers/quickbooks.rb
     })
 
 Quickbooks.sandbox_mode = true
-```
 
 
-* A secrets.yml
+
+* A secrets.yml file.
 /config/secrets.yml
 
-```
+
 
     development:
       secret_key_base: your_secret_key_base
@@ -37,9 +37,8 @@ Quickbooks.sandbox_mode = true
     production:
       secret_key_base: <%= ENV["SECRET_KEY_BASE"] %>
 
-```
 
-* I am currently using
+
 * Ruby version ruby-2.0.0-p353
 * Rails version 4.2.0
 
