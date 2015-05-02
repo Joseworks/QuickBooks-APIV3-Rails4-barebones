@@ -2,7 +2,7 @@
 Rails 4 QuickBooks API V3 barebone based on Christian Pelczarski(minimul) Tutorials and Screencasts from http://minimul.com/integrating-rails-and-quickbooks-online-via-the-version-3-api-part-1.html
 
 
-# **-Things you need**
+Things you need**
 
 * A QB configuration file
 config/initializers/quickbooks.rb
