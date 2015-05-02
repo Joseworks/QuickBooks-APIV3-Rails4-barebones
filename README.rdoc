@@ -19,7 +19,7 @@ config/initializers/quickbooks.rb
         :access_token_path    => "/oauth/v1/get_access_token"
     })
 
-Quickbooks.sandbox_mode = true
+    Quickbooks.sandbox_mode = true
 
 
 
