@@ -2,38 +2,41 @@
 Rails 4 QuickBooks API V3 barebone based on Christian Pelczarski(minimul) Tutorials and Screencasts from http://minimul.com/integrating-rails-and-quickbooks-online-via-the-version-3-api-part-1.html
 
 
- **Things you need**
+# **-Things you need**
 
 * A QB configuration file
 config/initializers/quickbooks.rb
-```
-QB_KEY = "your_QB_KEY_HERE"
-QB_SECRET = "your_QB_SECRET_KEY_HERE"
 
-$qb_oauth_consumer = OAuth::Consumer.new(QB_KEY, QB_SECRET, {
-    :site                 => "https://oauth.intuit.com",
-    :request_token_path   => "/oauth/v1/get_request_token",
-    :authorize_url        => "https://appcenter.intuit.com/Connect/Begin",
-    :access_token_path    => "/oauth/v1/get_access_token"
-})
+```
+
+    QB_KEY = "your_QB_KEY_HERE"
+    QB_SECRET = "your_QB_SECRET_KEY_HERE"
+
+    $qb_oauth_consumer = OAuth::Consumer.new(QB_KEY, QB_SECRET, {
+        :site                 => "https://oauth.intuit.com",
+        :request_token_path   => "/oauth/v1/get_request_token",
+        :authorize_url        => "https://appcenter.intuit.com/Connect/Begin",
+        :access_token_path    => "/oauth/v1/get_access_token"
+    })
 
 Quickbooks.sandbox_mode = true
 ```
 
+
 * A secrets.yml
 /config/secrets.yml
+
 ```
-development:
-  secret_key_base: your_secret_key_base
 
-test:
-  secret_key_base: your_secret_key_base_test
+    development:
+      secret_key_base: your_secret_key_base
 
+    test:
+      secret_key_base: your_secret_key_base_test
 
-# Do not keep production secrets in the repository,
-# instead read values from the environment.
-production:
-  secret_key_base: <%= ENV["SECRET_KEY_BASE"] %>
+    production:
+      secret_key_base: <%= ENV["SECRET_KEY_BASE"] %>
+
 ```
 
 * I am currently using
