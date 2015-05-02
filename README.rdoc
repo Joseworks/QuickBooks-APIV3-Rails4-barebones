@@ -1,27 +1,53 @@
 == README
+Rails 4 QuickBooks API V3 barebone based on Christian Pelczarski(minimul) Tutorials and Screencasts from http://minimul.com/integrating-rails-and-quickbooks-online-via-the-version-3-api-part-1.html
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+* Things you need
 
-Things you may want to cover:
+* QB configuration file
+config/initializers/quickbooks.rb
 
-* Ruby version
+QB_KEY = "your_QB_KEY_HERE"
+QB_SECRET = "your_QB_SECRET_KEY_HERE"
 
-* System dependencies
+$qb_oauth_consumer = OAuth::Consumer.new(QB_KEY, QB_SECRET, {
+    :site                 => "https://oauth.intuit.com",
+    :request_token_path   => "/oauth/v1/get_request_token",
+    :authorize_url        => "https://appcenter.intuit.com/Connect/Begin",
+    :access_token_path    => "/oauth/v1/get_access_token"
+})
 
-* Configuration
+Quickbooks.sandbox_mode = true
 
-* Database creation
+*  secrets.yml
+/config/secrets.yml
+# Be sure to restart your server when you modify this file.
 
-* Database initialization
+# Your secret key is used for verifying the integrity of signed cookies.
+# If you change this key, all old signed cookies will become invalid!
 
-* How to run the test suite
+# Make sure the secret is at least 30 characters and all random,
+# no regular words or you'll be exposed to dictionary attacks.
+# You can use `rake secret` to generate a secure secret key.
 
-* Services (job queues, cache servers, search engines, etc.)
+# Make sure the secrets in this file are kept private
+# if you're sharing your code publicly.
 
-* Deployment instructions
+development:
+  secret_key_base: your_secret_key_base
 
-* ...
+test:
+  secret_key_base: your_secret_key_base_test
+
+
+# Do not keep production secrets in the repository,
+# instead read values from the environment.
+production:
+  secret_key_base: <%= ENV["SECRET_KEY_BASE"] %>
+
+
+* I am currently using
+* Ruby version ruby-2.0.0-p353
+* Rails version 4.2.0
 
 
 Please feel free to use a different markup language if you do not plan to run
